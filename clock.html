@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cnavas实现动态时钟</title>
+    <style type="text/css">
+    div{
+        text-align: center;
+        position: relative;
+        font-size: 20px;
+        margin:100px auto 0;
+    }
+    #data{
+        position: absolute;
+        top: -40px;
+    }
+
+    /* #clock{
+        border: 1px dotted black;
+    } */
+    </style>
+</head>
+<body>
+<div id="container">
+    <!-- <span id="data">2019年</span> -->
+    <canvas id="clock" height="600px" width="600px"></canvas>
+</div>
+<script src="js/require.js" data-main="js/clock"></script>
+
+</body>
+</html>
