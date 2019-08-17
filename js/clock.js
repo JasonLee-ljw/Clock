@@ -4,7 +4,7 @@ requirejs(['jquery','ClockModel'],function ($,clock) {
             radius: 200,
             
     });
-        
+    
 });
 
 

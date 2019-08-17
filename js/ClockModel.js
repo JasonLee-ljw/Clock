@@ -8,7 +8,6 @@ define(['jquery'],function ($) {
         this.r = this.width / 2;
         this.rem = this.width / 300;
         this.$data = $('#container');
-
         if(this.opts.mode != 'Arab' || 'Roman'){
             this.opts.mode == 'Arab'
         };
@@ -20,8 +19,17 @@ define(['jquery'],function ($) {
         radius:300,//时钟大小
         isShowDate:true//是否显示日期
     }
-    
     Clock.prototype.init = function () {
+        this.drow();
+
+        this.interval = setInterval (() => {
+         this.drow()
+        },1000)
+    };
+    Clock.prototype.stop = function () {
+        clearInterval(this.interval);
+    }
+    Clock.prototype.drow = function () {
         this.$drow.clearRect(0,0,this.width,this.height);
         var now = new Date();
         var hour = now.getHours();
@@ -35,8 +43,7 @@ define(['jquery'],function ($) {
         this.$drow.restore();
         if(this.opts.isShowDate){
             this.current();
-            console.log(this.current);
-        }
+        };
         
     };
     //时钟外框
@@ -177,7 +184,8 @@ define(['jquery'],function ($) {
         this.$data.prepend(`<span id='data'>${year} 年 ${month} 月 ${day} 日 ${week}</span>`);
     }
     var init = function (el,option){
-        new Clock(el,option).init();
+         new Clock(el,option).init();
+         
     }
 
     return {
